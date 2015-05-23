@@ -1,0 +1,6 @@
+.table-scroll-wrapper {
+  max-height: 450px;
+  overflow-y: auto;
+  border: solid;
+  border-width: 1px;
+}

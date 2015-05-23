@@ -1,0 +1,21 @@
+<template name="dumpMethods">
+  <div class="container">
+    <h3>Publications Demo</h3>
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <ul class="list-group">
+          {{#each methodKeys}}
+            <li class="list-group-item">{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <textarea id="methodBody" class="col-md-10 col-md-offset-1" rows="30">{{selectedMethod}}</textarea>
+  </div>
+
+  <br /><br /><br /><br />
+</template>
