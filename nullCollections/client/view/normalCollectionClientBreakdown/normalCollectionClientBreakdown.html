@@ -1,0 +1,58 @@
+<template name="normalClientBreakdown">
+  <div class="container">
+    <h2>NormalCollection - Client Breakdown</h2>
+
+    <a href="{{pathFor 'home'}}">Back to Home</a>
+
+    <div class="row">
+      <h4>Meteor.Collection Methods:</h4>
+
+      <div id="collectionMethodsList" class="panel col-md-3">
+        <ul id="" class="list-group">
+          {{#each collectionMethodKeys}}
+            <li class="list-group-item">{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="col-md-9">
+        {{#prism language="javascript"}}
+            {{selectedCollectionMethod}}
+        {{/prism}}
+      </div>
+    </div>
+
+    <div class="row">
+      <h4>NormalCollection Methods:</h4>
+
+      <div id="normalCollectionMethodsList" class="panel col-md-3">
+        <ul id="" class="list-group">
+          {{#each normalCollectionMethodKeys}}
+            <li class="list-group-item">{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="col-md-9">
+        {{#prism language="javascript"}}
+            {{selectedNormalCollectionMethod}}
+        {{/prism}}
+      </div>
+    </div>
+
+    <div class="row">
+      <h4>NormalCollection._collection Methods:</h4>
+
+      <div id="normalCollectionCollectionMethodsList" class="panel col-md-3">
+        <ul id="" class="list-group">
+          {{#each normalCollectionCollectionMethodKeys}}
+            <li class="list-group-item">{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="col-md-9">
+        {{#prism language="javascript"}}
+            {{selectedNormalCollectionCollectionMethod}}
+        {{/prism}}
+      </div>
+    </div>
+  </div>
+</template>

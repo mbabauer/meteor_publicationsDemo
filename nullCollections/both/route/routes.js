@@ -5,6 +5,26 @@ FlowRouter.route('/', {
   }
 });
 
+FlowRouter.route('/normal', {
+  name: 'normal',
+  action: function(params) {
+    FlowLayout.render('normal');
+  }
+});
+
+FlowRouter.route('/normal/clientBreakdown', {
+  name: 'normalClientBreakdown',
+  action: function(params) {
+    FlowLayout.render('normalClientBreakdown');
+  }
+});
+
+FlowRouter.route('/normal/serverBreakdown', {
+  name: 'normalServerBreakdown',
+  action: function(params) {
+    FlowLayout.render('normalServerBreakdown');
+  }
+});
 
 FlowRouter.route('/nullNameServer', {
   name: 'nullNameServer',

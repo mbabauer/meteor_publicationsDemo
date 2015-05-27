@@ -1,9 +1,9 @@
 /**
- * nullNameServer Template lifecycle methods
+ * normal Template lifecycle methods
  */
-Template.nullNameServer.onRendered(function() {
+Template.normal.onRendered(function() {
   // Call method to return if NormalCollection is defined on the server
-  Meteor.call('isNullNamedCollectionDefined', function(err, result) {
+  Meteor.call('isNormalCollectionDefined', function(err, result) {
     Session.set('isServerDefined', result);
   });
 
@@ -16,11 +16,11 @@ Template.nullNameServer.onRendered(function() {
 });
 
 /**
- * nullNameServer Template helper methods
+ * Normal Template helper methods
  */
-Template.nullNameServer.helpers({
+Template.normal.helpers({
   isClientDefined: function() {
-    return !(typeof NullNameServerCollection === "undefined");
+    return !(typeof NormalCollection === "undefined");
   },
   isServerDefined: function() {
     return Session.get('isServerDefined');

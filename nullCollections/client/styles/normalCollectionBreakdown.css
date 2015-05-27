@@ -1,0 +1,4 @@
+#collectionMethodsList, #normalCollectionMethodsList, #normalCollectionCollectionMethodsList, pre {
+  height: 450px;
+  overflow-y: auto;
+}

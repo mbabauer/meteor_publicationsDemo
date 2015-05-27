@@ -13,6 +13,8 @@ arillo:flow-router-helpers
 
 # UI-helper packages
 twbs:bootstrap
+mizzao:jquery-ui
+gadicohen:prism
 
 # General Utils
 percolatestudio:synced-cron

@@ -1,1 +1,4 @@
 */.tern-project
+*~
+*.swp
+*.swo
