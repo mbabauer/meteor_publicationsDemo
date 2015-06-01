@@ -6,6 +6,7 @@ Template.normalClientBreakdown.onRendered(function() {
   Session.set("COLLECTION_METHODS", dumpObjectMethods(Meteor.Collection, true));
   Session.set("NORM_COLLECTION_METHODS", dumpObjectMethods(NormalCollection, true));
   Session.set("NORM_COLLECTION_COLLECTION_METHODS", dumpObjectMethods(NormalCollection._collection, true));
+  Session.set("METHOD_HANDLERS_METHODS", dumpObjectMethods(Meteor.default_connection._methodHandlers, true));
 
   // jQuery UI selectable for Collection methods
   $('#collectionMethodsList ul').selectable({
@@ -49,8 +50,19 @@ Template.normalClientBreakdown.onRendered(function() {
     }
   });
 
-  console.log('Meteor: ', Meteor);
-  console.log('_collection: ', NormalCollection);
+  // jQuery UI selectable for Meteor.default_connection._methodHandlers Methods methods
+  $('#methodHandlersList ul').selectable({
+    filter:'li',
+    selected: function(e, ui) {
+      $(ui.selected).addClass('active');
+      var methodName = Blaze.getData(ui.selected);
+      Session.set('selectedMethodHandlersMethod', methodName);
+    },
+    unselected: function(e, ui) {
+      $(ui.unselected).removeClass('active');
+      Session.set('selectedMethodHandlersMethod', undefined);
+    }
+  });
 });
 
 /**
@@ -59,15 +71,20 @@ Template.normalClientBreakdown.onRendered(function() {
 Template.normalClientBreakdown.helpers({
   collectionMethodKeys: function() {
     var results = [];
-    _.each(Object.keys(Session.get('COLLECTION_METHODS')), function(key, idx) {
-      results.push(key);
-    });
+    var collMeths = Session.get('COLLECTION_METHODS');
+    if (collMeths) {
+      _.each(Object.keys(collMeths), function(key, idx) {
+        results.push(key);
+      });
+    }
     return results.sort();
   },
   selectedCollectionMethod: function() {
     var methodName = Session.get('selectedCollectionMethod');
     var methods = Session.get('COLLECTION_METHODS');
-    return methods[methodName];
+    if (methods[methodName]) {
+      return methods[methodName];
+    }
   },
 
 
@@ -81,7 +98,9 @@ Template.normalClientBreakdown.helpers({
   selectedNormalCollectionMethod: function() {
     var methodName = Session.get('selectedNormalCollectionMethod');
     var methods = Session.get('NORM_COLLECTION_METHODS');
-    return methods[methodName];
+    if (methods[methodName]) {
+      return methods[methodName];
+    }
   },
 
 
@@ -95,6 +114,24 @@ Template.normalClientBreakdown.helpers({
   selectedNormalCollectionCollectionMethod: function() {
     var methodName = Session.get('selectedNormalCollectionCollectionMethod');
     var methods = Session.get('NORM_COLLECTION_COLLECTION_METHODS');
-    return methods[methodName];
+    if (methods[methodName]) {
+      return methods[methodName];
+    }
+  },
+
+
+  methodHandlersKeys: function() {
+    var results = [];
+    _.each(Object.keys(Session.get('METHOD_HANDLERS_METHODS')), function(key, idx) {
+      results.push(key);
+    });
+    return results.sort();
+  },
+  selectedMethodHandlersMethod: function() {
+    var methodName = Session.get('selectedMethodHandlersMethod');
+    var methods = Session.get('METHOD_HANDLERS_METHODS');
+    if (methods[methodName]) {
+      return methods[methodName];
+    }
   }
 });

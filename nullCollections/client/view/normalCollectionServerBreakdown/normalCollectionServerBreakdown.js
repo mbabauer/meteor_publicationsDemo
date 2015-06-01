@@ -60,8 +60,7 @@ Template.normalServerBreakdown.onRendered(function() {
     }
   });
 
-  console.log('Meteor: ', Meteor);
-  console.log('_collection: ', NormalCollection);
+  console.log('Explore: ', NormalCollection._connection);
 });
 
 /**
@@ -70,9 +69,12 @@ Template.normalServerBreakdown.onRendered(function() {
 Template.normalServerBreakdown.helpers({
   collectionMethodKeys: function() {
     var results = [];
-    _.each(Object.keys(Session.get('COLLECTION_METHODS')), function(key, idx) {
-      results.push(key);
-    });
+    var collMeths = Session.get('COLLECTION_METHODS');
+    if (collMeths) {
+      _.each(Object.keys(collMeths), function(key, idx) {
+        results.push(key);
+      });
+    }
     return results.sort();
   },
   selectedCollectionMethod: function() {

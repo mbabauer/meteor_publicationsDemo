@@ -1,13 +1,13 @@
 /**
- * nullNameServer Template lifecycle methods
+ * nullNameClient Template lifecycle methods
  */
-Template.nullNameServer.onRendered(function() {
-  // Call method to return if NormalCollection is defined on the server
-  Meteor.call('isNullNamedCollectionDefined', function(err, result) {
+Template.nullNameClient.onRendered(function() {
+  // Call method to return if NormalCollection is defined on the Client
+  Meteor.call('isNullNamedClientCollectionDefined', function(err, result) {
     Session.set('isServerDefined', result);
   });
 
-  // Get server-side methods on Meteor.default_server.method_handlers
+  // Get Server-side methods on Meteor.default_server.method_handlers
   Meteor.call('dumpDefaultServerMethodHandlers', function(err, results) {
     if (!err) {
       Session.set("SERVER_METHODS", results);
@@ -16,11 +16,11 @@ Template.nullNameServer.onRendered(function() {
 });
 
 /**
- * nullNameServer Template helper methods
+ * nullNameClient Template helper methods
  */
-Template.nullNameServer.helpers({
+Template.nullNameClient.helpers({
   isClientDefined: function() {
-    return !(typeof NullNameServerCollection === "undefined");
+    return !(typeof NullNameClientCollection === "undefined");
   },
   isServerDefined: function() {
     return Session.get('isServerDefined');

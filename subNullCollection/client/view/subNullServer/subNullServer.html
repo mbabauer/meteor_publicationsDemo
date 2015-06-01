@@ -1,0 +1,38 @@
+<template name="subNullServer">
+  <div class="container">
+    <h2>Subscribe to a Null-Named Server Collection</h2>
+
+    <a href="{{pathFor 'home'}}">Back to Home</a>
+
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-condensed table-striped">
+          <thead>
+            <tr>
+              <th>Created On</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each nullRecords}}
+              <tr>
+                <td>{{created_on}}</td>
+                <td>
+                  <button class="btn btn-warning btn-xs btnUpdate">Update</button>
+                  <button class="btn btn-danger btn-xs btnRemove">Remove</button>
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1">
+        <button class="btn btn-primary btnAdd">Add</button>
+      </div>
+    </div>
+
+  </div>
+</template>

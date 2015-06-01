@@ -54,5 +54,22 @@
         {{/prism}}
       </div>
     </div>
+
+    <div class="row">
+      <h4>Meteor.default_connection._methodHandlers Methods:</h4>
+
+      <div id="methodHandlersList" class="panel col-md-3">
+        <ul id="" class="list-group">
+          {{#each methodHandlersKeys}}
+            <li class="list-group-item">{{this}}</li>
+          {{/each}}
+        </ul>
+      </div>
+      <div class="col-md-9">
+        {{#prism language="javascript"}}
+            {{selectedMethodHandlersMethod}}
+        {{/prism}}
+      </div>
+    </div>
   </div>
 </template>

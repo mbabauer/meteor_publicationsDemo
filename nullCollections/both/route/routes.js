@@ -26,6 +26,13 @@ FlowRouter.route('/normal/serverBreakdown', {
   }
 });
 
+FlowRouter.route('/nullNameClient', {
+  name: 'nullNameClient',
+  action: function(params) {
+    FlowLayout.render('nullNameClient');
+  }
+});
+
 FlowRouter.route('/nullNameServer', {
   name: 'nullNameServer',
   action: function(params) {
