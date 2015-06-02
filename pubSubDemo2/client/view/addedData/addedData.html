@@ -1,0 +1,43 @@
+<template name="addeddata">
+  {{#if Template.subscriptionsReady}}
+    <div class="container">
+      <h2>Added Record Data</h2>
+
+      <a href="{{pathFor 'home'}}">Back to Home</a>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="scroll-450">
+            <table class="table table-condensed table-striped">
+              <thead>
+                <tr>
+                  <th>Created On</th>
+                  <th>Value</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each records}}
+                  <tr class="{{classState this.state}}">
+                    <td>{{created_on}}</td>
+                    <td>{{value}}</td>
+                    <td>
+                      <button class="btn btn-warning btn-xs btnUpdate">Update</button>
+                      <button class="btn btn-danger btn-xs btnRemove">Remove</button>
+                    </td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <button id="addBtn" class="btn btn-primary">Add Record</button>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+</template>

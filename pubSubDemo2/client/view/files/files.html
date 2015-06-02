@@ -1,0 +1,34 @@
+<template name="files">
+  <div class="container">
+    <h2>Collection of File Info</h2>
+
+    <a href="{{pathFor 'home'}}">Back to Home</a>
+
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-condensed table-striped">
+          <thead>
+            <tr>
+              <th>Path</th>
+              <th>Created On</th>
+              <th>Modified On</th>
+              <th>Last Accessed</th>
+              <th>Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each files}}
+              <tr>
+                <td>{{_id}}</td>
+                <td>{{created_on}}</td>
+                <td>{{modified_on}}</td>
+                <td>{{accessed_on}}</td>
+                <td>{{type}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</template>

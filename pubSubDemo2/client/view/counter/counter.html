@@ -1,0 +1,21 @@
+<template name="counter">
+  <div class="container">
+    <h2>Just a Counter</h2>
+
+    <a href="{{pathFor 'home'}}">Back to Home</a>
+
+    <div class="row">
+      <div class="col-md-12">
+        {{#with counter}}
+          Total number of records is {{count}}
+        {{/with}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <button id="addBtn" class="btn btn-primary">Add Record</button>
+      </div>
+    </div>
+  </div>
+</template>
