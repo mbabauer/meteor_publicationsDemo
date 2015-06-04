@@ -1,7 +1,7 @@
 /**
  * files Template lifecycle methods
  */
-Template.files.onRendered(function() {
+Template.files.onCreated(function() {
   this.subscribe('files');
 });
 

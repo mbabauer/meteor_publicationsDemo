@@ -1,7 +1,7 @@
 /**
  * addeddata Template lifecycle methods
  */
-Template.addeddata.onRendered(function() {
+Template.addeddata.onCreated(function() {
   this.subscribe('added_data');
 });
 

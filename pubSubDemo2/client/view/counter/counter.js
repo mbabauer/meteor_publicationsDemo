@@ -1,7 +1,7 @@
 /**
  * counter Template lifecycle methods
  */
-Template.counter.onRendered(function() {
+Template.counter.onCreated(function() {
   this.subscribe('just-counter');
 });
 

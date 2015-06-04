@@ -13,6 +13,13 @@ FlowRouter.route('/default', {
   }
 });
 
+FlowRouter.route('/defaultWithIsReady', {
+  name: 'defaultWithIsReady',
+  action: function(params) {
+    FlowLayout.render('defaultWithIsReady');
+  }
+});
+
 FlowRouter.route('/progressive', {
   name: 'progressive',
   action: function(params) {

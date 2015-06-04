@@ -1,7 +1,7 @@
 /**
  * subNullServer Template lifecycle methods
  */
-Template.subNullServer.onRendered(function() {
+Template.subNullServer.onCreated(function() {
   this.subscribe("nullServerCollection");
 });
 
